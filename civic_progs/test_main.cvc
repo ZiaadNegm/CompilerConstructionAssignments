@@ -1,0 +1,8 @@
+#include "civic.h"
+#include "core.h"
+
+export int main() {
+    printInt(gcd(60, 45));
+    printNewlines(1);
+    return 0;
+}
