@@ -7,3 +7,41 @@ export int gcd(int a, int b) {
     }
     return a;
 }
+
+export int fac(int n) {
+    if (n == 0){
+        return 1;
+    }
+    return fac(n - 1) * n;
+}
+
+export int fib(int n){
+    int a;
+    int b;
+    int temp;
+
+    if (n <= 1){
+        return n;
+    }
+    a = 0;
+    b = 1;
+
+    for (int i = 2, n + 1){
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
+
+export bool isprime(int n){
+    int i = 2;
+    if (n < 2) {return false;}
+    do {
+        if(n%i == 0) {
+            return false;
+        }
+        i = i + 1;
+    }while (i < n);
+    return true;
+}

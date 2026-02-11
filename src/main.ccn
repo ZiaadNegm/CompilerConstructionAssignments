@@ -29,7 +29,15 @@ phase Demo {
 
         traversal OptSubstraction {
             uid = OS,
-            nodes = { Binop }
+            nodes = { Binop}
+        };
+
+        traversal CountArithemticOps {
+            uid = CA,
+            nodes = {Binop, Program},
+            travdata {
+                int occurenceCountAri
+            }
         };
     }
 };
@@ -60,6 +68,10 @@ nodeset Link = Expr | Stmt;
 root node Program {
     children {
         Stmts stmts { constructor, mandatory }
+    },
+
+    attributes {
+        int occurenceCountArithmeticOperations
     }
 };
 

@@ -1,8 +1,61 @@
 #include "civic.h"
 #include "core.h"
+#include "coreio.h"
+#include "array.h"
 
 export int main() {
+    int[5] ivec;
+    float[3] fvec;
+    float[2, 3] a;
+    float[3, 2] b;
+    float[2, 2] c;
+    
+    // Test core functions
     printInt(gcd(60, 45));
     printNewlines(1);
-    return 0;
+    
+    printInt(fac(5));
+    printNewlines(1);
+    
+    printInt(fib(10));
+    printNewlines(1);
+    
+    if(isprime(17)){
+        printInt(1);
+    }
+    printNewlines(1);
+    
+    // Test coreio functions
+    printNewlines(1);
+    fibs(10);
+    printNewlines(1);
+    primes(10);
+    printNewlines(1);
+    
+    // Test integer vector
+    ivec[0] = 10;
+    ivec[1] = 20;
+    ivec[2] = 30;
+    ivec[3] = 40;
+    ivec[4] = 50;
+    printIntVec(ivec);
+    
+    // Test float vector
+    fvec[0] = 1.5;
+    fvec[1] = 2.5;
+    fvec[2] = 3.5;
+    printFloatVec(fvec);
+    
+    // Test matrix multiplication
+    a[0, 0] = 1.0; a[0, 1] = 2.0; a[0, 2] = 3.0;
+    a[1, 0] = 4.0; a[1, 1] = 5.0; a[1, 2] = 6.0;
+    
+    b[0, 0] = 7.0; b[0, 1] = 8.0;
+    b[1, 0] = 9.0; b[1, 1] = 10.0;
+    b[2, 0] = 11.0; b[2, 1] = 12.0;
+    
+    matMul(a, b, c);
+    printFloatMat(c);
+    
+    return 0; 
 }

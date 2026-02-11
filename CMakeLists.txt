@@ -34,6 +34,9 @@ add_executable(civicc ${FLEX_CivicLexer_OUTPUTS} ${BISON_CivicParser_OUTPUTS}
 
     # Youre free to remove the demo directory and these entries.
     src/demo/opt_sub.c src/demo/sum_ints.c src/demo/rename_identifiers.c
+
+    # Assignment files
+    civic_progs/count_arithmetic_ops.c
 )
 
 target_compile_options(civicc PRIVATE

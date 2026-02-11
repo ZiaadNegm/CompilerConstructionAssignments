@@ -1,0 +1,76 @@
+#include "civic.h"
+#include "core.h"
+
+
+
+export void printIntVec(int[n] vec){ 
+    for(int i =0, n){
+        printInt(vec[i]);
+        printNewlines(1);
+    }
+}
+
+export void printFloatVec(float[n] vec){
+    for(int i =0, n){
+        printFloat(vec[i]);
+        printNewlines(1);
+    }
+}
+
+export void printIntMat(int[m, n] mat){
+    for(int i =0, m){
+        for(int k =0, n){
+            printInt(mat[i, k]);
+        }
+        printNewlines(1);
+    }
+}
+
+export void printFloatMat(float[m, n] mat){
+    for(int i =0, m){
+        for(int k =0, n){
+           printFloat(mat[i, k]);
+        }
+        printNewlines(1);
+    }
+}
+
+export void scanIntVec(int[n] vec){
+    for(int i = 0, n){
+        vec[i] = scanInt();
+    }
+}
+export void scanFloatVec(float[n] vec){
+    for(int i = 0, n){
+        vec[i] = scanFloat();
+    }
+}
+
+export void scanIntMat(int[m, n] mat){
+    for(int i = 0, m){
+        for (int k = 0, n){
+            mat[i, k] = scanInt();
+        }
+    }
+}
+export void scanFloatMat(float[m, n] mat){
+    for(int i = 0, m){
+        for (int k = 0, n){
+            mat[i, k] = scanFloat();
+        }
+    }
+}
+
+export void matMul(float[m, n] a, float[o, p] b, float[q, l] c){
+    float sum;
+    // Matrix multiplication: n must equal o, result is m x p (q = m, l = p)
+    for (int i = 0, m){
+        for (int j = 0, p){
+            sum = 0.0;
+            for (int k = 0, n){
+                sum = sum + a[i, k] * b[k, j];
+            }
+            c[i, j] = sum;
+        }
+    }
+}
