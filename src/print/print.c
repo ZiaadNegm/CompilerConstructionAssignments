@@ -12,11 +12,22 @@
 #include "ccngen/trav.h"
 #include "palm/dbug.h"
 
+static void print_arith_count(node_st *node) {
+  printf("Arithmetic operator counts:\n");
+  printf("  add: %d\n", PROGRAM_COUNTADD(node));
+  printf("  sub: %d\n", PROGRAM_COUNTSUB(node));
+  printf("  mul: %d\n", PROGRAM_COUNTMUL(node));
+  printf("  div: %d\n", PROGRAM_COUNTDIV(node));
+  printf("  mod: %d\n", PROGRAM_COUNTMOD(node));
+  printf("  total: %d\n", PROGRAM_OCCURENCECOUNTARITHMETICOPERATIONS(node));
+}
+
 /**
  * @fn PRTprogram
  */
 node_st *PRTprogram(node_st *node) {
   TRAVstmts(node);
+  print_arith_count(node);
   return node;
 }
 
@@ -145,11 +156,5 @@ node_st *PRTfloat(node_st *node) {
 node_st *PRTbool(node_st *node) {
   char *bool_str = BOOL_VAL(node) ? "true" : "false";
   printf("%s", bool_str);
-  return node;
-}
-
-node_st *PRTcountArith(node_st *node) {
-  printf("occurence count arithemtic: %d",
-         PROGRAM_OCCURENCECOUNTARITHMETICOPERATIONS(node));
   return node;
 }

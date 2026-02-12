@@ -4,6 +4,7 @@ start phase RootPhase {
     actions {
         pass SPdoScanParse;
         Demo;
+        Assignment1;
         print;
     }
 };
@@ -31,13 +32,32 @@ phase Demo {
             uid = OS,
             nodes = { Binop}
         };
+   }
+};
 
+phase Assignment1 {
+    actions{
         traversal CountArithemticOps {
             uid = CA,
             nodes = {Binop, Program},
             travdata {
-                int occurenceCountAri
+                int countAdd,
+                int countSub,
+                int countMul,
+                int countDiv,
+                int countMod
             }
+        };
+    traversal CountIdentifiers {
+            uid = CI,
+            nodes = {Program, Var, VarLet},
+            travdata {
+                user htable_stptr table
+            }
+        };
+    traversal strengthReduction {
+            uid = SR,
+            nodes = {Binop}
         };
     }
 };
@@ -71,7 +91,12 @@ root node Program {
     },
 
     attributes {
-        int occurenceCountArithmeticOperations
+        int occurenceCountArithmeticOperations,
+        int countAdd,
+        int countSub,
+        int countMul,
+        int countDiv,
+        int countMod
     }
 };
 

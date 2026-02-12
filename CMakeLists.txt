@@ -36,7 +36,9 @@ add_executable(civicc ${FLEX_CivicLexer_OUTPUTS} ${BISON_CivicParser_OUTPUTS}
     src/demo/opt_sub.c src/demo/sum_ints.c src/demo/rename_identifiers.c
 
     # Assignment files
-    civic_progs/count_arithmetic_ops.c
+    src/framework_assignments/week1/count_arithmetic_ops.c
+    src/framework_assignments/week1/count_identifiers.c
+    src/framework_assignments/week1/strength_reduction.c
 )
 
 target_compile_options(civicc PRIVATE

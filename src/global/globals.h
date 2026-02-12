@@ -4,11 +4,12 @@
 #include <stddef.h>
 
 struct globals {
-    int line;
-    int col;
-    int verbose;
-    char *input_file;
-    char *output_file;
+  int line;
+  int col;
+  int verbose;
+  char *input_file;
+  char *output_file;
+  int max_factor;
 };
 
 extern struct globals global;
